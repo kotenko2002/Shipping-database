@@ -67,7 +67,7 @@ CREATE TABLE Contracts (
     ClientId INT,
     -- TotalWeight INT DEFAULT 0,
     -- TotalPrice INT NOT NULL,
-    -- SigningDate DATE NOT NULL,
+    SigningDate DATE NOT NULL,
     FOREIGN KEY (ShipId)
         REFERENCES Ships (Id),
     FOREIGN KEY (ClientId)
@@ -85,7 +85,7 @@ CREATE TABLE Destinations (
 CREATE TABLE Products (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     ContractId INT,
-    Name VARCHAR(20) NOT NULL,
+    Name VARCHAR(18) NOT NULL,
     Weight INT NOT NULL,
     Price INT NOT NULL,
     FOREIGN KEY (ContractId)

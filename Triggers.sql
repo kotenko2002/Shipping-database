@@ -37,16 +37,3 @@ BEFORE  INSERT ON Products
 		SET MESSAGE_TEXT = "Overweight on the ship";
 	END IF;
 END;
-
-
-
-
-
-SELECT 
-    SUM(Weight)
-FROM
-    Products
-        JOIN
-    Contracts ON Contracts.Id = Products.ContractId
-WHERE
-    ShipId = 2;
