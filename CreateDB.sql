@@ -1,4 +1,4 @@
-DROP DATABASE shipping;
+DROP DATABASE IF EXISTS shipping;
 CREATE DATABASE shipping;
 
 USE shipping;
@@ -63,8 +63,8 @@ CREATE TABLE Clients (
 );
 CREATE TABLE Contracts (
     Id INT PRIMARY KEY AUTO_INCREMENT,
-    ShipId INT,
-    ClientId INT,
+    ShipId INT NULL,
+    ClientId INT NOT NULL,
     -- TotalWeight INT DEFAULT 0,
     -- TotalPrice INT NOT NULL,
     SigningDate DATE NOT NULL,
