@@ -1,7 +1,7 @@
 USE shipping;
 
 -- (1) топ 10 країн з найбільшою кількістю портів
-SELECT DISTINCT Countries.Name,  Ports.CountryCode, COUNT(Ports.CountryCode)
+SELECT DISTINCT Countries.Name,  Ports.CountryCode, COUNT(Ports.CountryCode) 
 FROM Ports
 JOIN Countries ON Countries.Code = Ports.CountryCode
 GROUP BY CountryCode
@@ -64,7 +64,8 @@ SELECT clients.Name, ROUND(SUM(Price)/SUM(Weight),2)
 FROM products
 JOIN contracts ON contracts.Id = products.ContractId
 JOIN clients ON clients.Id = contracts.ClientId
-GROUP BY clients.Id;
+GROUP BY clients.Id
+ORDER BY ROUND(SUM(Price)/SUM(Weight),2) DESC;
  
 -- (10)  інформація про команду корабля
 SELECT FullName, positions.Name, PhoneNumber, Salary 

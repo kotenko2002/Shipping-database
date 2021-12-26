@@ -4,12 +4,12 @@ CREATE DATABASE shipping;
 USE shipping;
 
 CREATE TABLE Countries (
-    Code CHAR(3) PRIMARY KEY,
+    Code VARCHAR(3) PRIMARY KEY,
     Name VARCHAR(20) NOT NULL
 );
 CREATE TABLE FreightCompanies (
     Id INT PRIMARY KEY AUTO_INCREMENT,
-    CountryCode CHAR(3),
+    CountryCode VARCHAR(3),
     Name VARCHAR(30) NOT NULL,
     PhoneNumber VARCHAR(17) NOT NULL,
     Email VARCHAR(40) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE Workers (
 );
 CREATE TABLE Ports (
     Id INT PRIMARY KEY AUTO_INCREMENT,
-    CountryCode CHAR(3),
+    CountryCode VARCHAR(3),
     Name VARCHAR(20) NOT NULL,
     FOREIGN KEY (CountryCode)
         REFERENCES Countries (Code)
@@ -65,8 +65,6 @@ CREATE TABLE Contracts (
     Id INT PRIMARY KEY AUTO_INCREMENT,
     ShipId INT NULL,
     ClientId INT NOT NULL,
-    -- TotalWeight INT DEFAULT 0,
-    -- TotalPrice INT NOT NULL,
     SigningDate DATE NOT NULL,
     FOREIGN KEY (ShipId)
         REFERENCES Ships (Id),
